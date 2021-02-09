@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-button [routerLink]="['/home']" routerDirection="back" color="medium">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title slot="secondary">Editar datos del Libro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="bookForm" (ngSubmit)="onEdit()" *ngIf="book">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label>Nombre:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input type="text" placeholder="..." formControlName="name" [(ngModel)]="book.name"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Género:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input type="text" placeholder="..." formControlName="genre" [(ngModel)]="book.genre"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Fecha:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input type="date" formControlName="date" [(ngModel)]="book.date"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Portada:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input type="url" placeholder="http://****" formControlName="cover" [(ngModel)]="book.cover"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Descripción:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-textarea placeholder="****" formControlName="description" [(ngModel)]="book.description"></ion-textarea>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Autor:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input type="text" placeholder="Nombre Apellido" formControlName="author" [(ngModel)]="book.author"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Editorial:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input type="text" placeholder="..." formControlName="editorial" [(ngModel)]="book.editorial"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>Precio:</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-input type="text" placeholder="...€" formControlName="price" [(ngModel)]="book.price"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button type="submit" color="primary">
+      <ion-label>Editar</ion-label>
+      <ion-icon name="save"></ion-icon>
+    </ion-button>
+  </form>
+</ion-content>

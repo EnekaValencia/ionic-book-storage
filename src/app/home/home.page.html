@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title slot="primary">
+      Biblioteca de Libros
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="ion-padding">
+    <ion-list>
+      <ion-item *ngFor="let book of books" (click)="bookTapped(book)">
+        <ion-thumbnail slot="start">
+          <img src="{{book.cover}}">
+        </ion-thumbnail>
+        <ion-label> {{book.name}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-toolbar>
+  <img src="../../assets/images/4Vientos_iconoBlanco.png"/>
+  <ion-title slot="primary">
+    Desarrollo de Interfaces
+  </ion-title>
+</ion-toolbar>
