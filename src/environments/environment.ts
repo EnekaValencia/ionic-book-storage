@@ -3,8 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyDh9RG3hrgmoeZzAzRoUlgZj4S5Dq0spKg",
+    authDomain: "ionic-book-storage.firebaseapp.com",
+    databaseURL: "https://ionic-book-storage-default-rtdb.firebaseio.com",
+    projectId: "ionic-book-storage",
+    storageBucket: "ionic-book-storage.appspot.com",
+    messagingSenderId: "287862992417",
+    appId: "1:287862992417:web:2958afbd44b60bc8d13d60"
+  }
+  };
 
 /*
  * For easier debugging in development mode, you can import the following file

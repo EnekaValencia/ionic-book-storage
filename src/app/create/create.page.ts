@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { BookdbService } from '../core/bookdbservice.service';
+//import { BookdbService } from '../core/bookcrud.service';
+import { BookcrudService } from '../core/bookcrud.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { IBook } from '../share/interfaces';
@@ -12,12 +13,13 @@ import { IBook } from '../share/interfaces';
 })
 
 export class CreatePage implements OnInit {
+  
   book: IBook;
   bookForm: FormGroup;
 
   constructor(
     private router: Router,
-    private bookdbService: BookdbService,
+    private bookcrudService: BookcrudService,
     public toastController: ToastController
   ) { }
 
@@ -45,6 +47,7 @@ export class CreatePage implements OnInit {
           text: 'ACEPTAR',
           handler: () => {
             this.saveBook();
+            //this.CreateRecord();
             this.router.navigate(['home']);
           }
         }, {
@@ -58,12 +61,12 @@ export class CreatePage implements OnInit {
     });
     toast.present();
   }
-
+ 
   saveBook() {
     this.book = this.bookForm.value;
     let nextKey = this.book.name.trim();
     this.book.id = nextKey;
-    this.bookdbService.setItem(nextKey, this.book);
+    this.bookcrudService.create_Book(this.book);
     console.warn(this.bookForm.value);
   }
 }
